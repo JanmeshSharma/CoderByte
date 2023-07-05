@@ -1,0 +1,227 @@
+1. Create an assertion to verify the latitude is 51.51 and the longitude is -0.13.
+Ans:
+
+const jsonData = pm.response.json();
+
+pm.test("Latitude is 51.51", function () {
+    pm.expect(jsonData.coord.lat).to.eql(51.51);
+});
+
+pm.test("Longitude is -0.13", function () {
+    pm.expect(jsonData.coord.lon).to.eql(-0.13);
+});
+
+ 2. In addition to asserting the latitude and longitude, please develop 3 more test cases you can test using the open weather map API using Postman. 
+Ans:
+A. Test Script to Verify Status Code:
+
+const jsonData = pm.response.json();
+pm.test("Verify Status Code", function () {
+    pm.response.to.have.status(200);
+});
+
+B. Test Script to Verify Response Body:
+
+const jsonData = pm.response.json();
+pm.test("Verify Response Body", function () {
+    pm.response.to.have.jsonBody("name", "London");
+    pm.response.to.have.jsonBody("sys.country", "GB");
+});
+
+C. Test Script to Verify Response Time:
+
+const jsonData = pm.response.json();
+
+pm.test("Verify Response Time", function () {
+    pm.expect(pm.response.responseTime).to.be.below(2000);
+});
+
+
+3.Place the 4 requests into a collection and export the collection as a JSON file. 
+
+{
+	"info": {
+		"_postman_id": "c6b738b7-5611-4d11-b99f-3de26695974c",
+		"name": "CoderByte",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28284353"
+	},
+	"item": [
+		{
+			"name": "Create an assertion to verify the latitude is 51.51 and the longitude is -0.13.",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "const jsonData = pm.response.json();\r\n\r\npm.test(\"Latitude is 51.51\", function () {\r\n    pm.expect(jsonData.coord.lat).to.eql(51.51);\r\n});\r\n\r\npm.test(\"Longitude is -0.13\", function () {\r\n    pm.expect(jsonData.coord.lon).to.eql(-0.13);\r\n});",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22.",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6 907d289e10d714a6e88b30761fae22."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Script to Verify Status Code",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "const jsonData = pm.response.json();\r\npm.test(\"Verify Status Code\", function () {\r\n    pm.response.to.have.status(200);\r\n});",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22.",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6 907d289e10d714a6e88b30761fae22."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Script to Verify Response Body",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "const jsonData = pm.response.json();\r\npm.test(\"Verify Response Body\", function () {\r\n    pm.response.to.have.jsonBody(\"name\", \"London\");\r\n    pm.response.to.have.jsonBody(\"sys.country\", \"GB\");\r\n});",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22.",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6 907d289e10d714a6e88b30761fae22."
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Script to Verify Response Time",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "const jsonData = pm.response.json();\r\n\r\npm.test(\"Verify Response Time\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6 907d289e10d714a6e88b30761fae22.",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "appid",
+							"value": "b6 907d289e10d714a6e88b30761fae22."
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
